@@ -1,5 +1,17 @@
-import { utilText } from "./util/util";
+import { PrismaClient } from "@prisma/client";
 
-console.log("hello");
+const prisma = new PrismaClient();
 
-console.log(utilText);
+const main = async () => {
+  console.log("hello prisma");
+};
+
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
