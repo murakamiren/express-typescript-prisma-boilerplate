@@ -5,6 +5,8 @@ import { port } from "./constant/config";
 const prisma = new PrismaClient();
 const app = express();
 
+app.use(express.json());
+
 const main = async () => {
   console.log("hello prisma");
 };
